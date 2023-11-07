@@ -7,6 +7,7 @@ import 'package:stacked_services/stacked_services.dart';
 import 'package:socket_chat/services/socket_service.dart';
 import 'package:socket_chat/ui/views/login/login_view.dart';
 import 'package:socket_chat/services/channel_service.dart';
+import 'package:socket_chat/ui/views/chat/chat_view.dart';
 // @stacked-import
 
 @StackedApp(
@@ -14,6 +15,7 @@ import 'package:socket_chat/services/channel_service.dart';
     MaterialRoute(page: HomeView),
     MaterialRoute(page: StartupView),
     MaterialRoute(page: LoginView),
+    MaterialRoute(page: ChatView),
 // @stacked-route
   ],
   dependencies: [
