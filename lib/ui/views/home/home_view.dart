@@ -34,7 +34,6 @@ class HomeView extends StackedView<HomeViewModel> {
                       ),
                     ),
                     verticalSpaceMedium,
-
                   ],
                 ),
                 Row(
