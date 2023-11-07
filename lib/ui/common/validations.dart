@@ -1,4 +1,3 @@
-
 //username validation for first time login
 String? validateUsername(String? value) {
   if (value != null && value.isNotEmpty) {

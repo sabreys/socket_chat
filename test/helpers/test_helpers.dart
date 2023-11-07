@@ -3,6 +3,7 @@ import 'package:mockito/mockito.dart';
 import 'package:socket_chat/app/app.locator.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:socket_chat/services/socket_service.dart';
+import 'package:socket_chat/services/channel_service.dart';
 // @stacked-import
 
 import 'test_helpers.mocks.dart';
@@ -12,6 +13,7 @@ import 'test_helpers.mocks.dart';
   MockSpec<BottomSheetService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<DialogService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<SocketService>(onMissingStub: OnMissingStub.returnDefault),
+  MockSpec<ChannelService>(onMissingStub: OnMissingStub.returnDefault),
 // @stacked-mock-spec
 ])
 void registerServices() {
@@ -19,6 +21,7 @@ void registerServices() {
   getAndRegisterBottomSheetService();
   getAndRegisterDialogService();
   getAndRegisterSocketService();
+  getAndRegisterChannelService();
 // @stacked-mock-register
 }
 
@@ -76,6 +79,13 @@ MockSocketService getAndRegisterSocketService() {
   _removeRegistrationIfExists<SocketService>();
   final service = MockSocketService();
   locator.registerSingleton<SocketService>(service);
+  return service;
+}
+
+MockChannelService getAndRegisterChannelService() {
+  _removeRegistrationIfExists<ChannelService>();
+  final service = MockChannelService();
+  locator.registerSingleton<ChannelService>(service);
   return service;
 }
 // @stacked-mock-create
