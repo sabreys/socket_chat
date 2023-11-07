@@ -6,11 +6,10 @@ import 'package:stacked/stacked_annotations.dart';
 import 'login_view.form.dart';
 import 'login_viewmodel.dart';
 
-@FormView(
-    fields: [
+@FormView(fields: [
   FormTextField(name: 'usernameInput', validator: validateUsername),
 ])
-class LoginView extends StackedView<LoginViewModel>  with $LoginView {
+class LoginView extends StackedView<LoginViewModel> with $LoginView {
   const LoginView({Key? key}) : super(key: key);
 
   @override
@@ -33,7 +32,7 @@ class LoginView extends StackedView<LoginViewModel>  with $LoginView {
             const SizedBox(height: 50),
             _buildUsernameField(viewModel),
             const SizedBox(height: 20),
-            _buildLoginButton(context,viewModel),
+            _buildLoginButton(context, viewModel),
           ],
         ),
       ),
@@ -51,12 +50,12 @@ class LoginView extends StackedView<LoginViewModel>  with $LoginView {
     );
   }
 
-  Widget _buildLoginButton(BuildContext context,LoginViewModel viewModel) {
+  Widget _buildLoginButton(BuildContext context, LoginViewModel viewModel) {
     return ElevatedButton(
       onPressed: () {
-        if(validateFormFields(viewModel)){
+        if (validateFormFields(viewModel)) {
           viewModel.login(context);
-        }else{
+        } else {
           showErrorToast().show(context);
         }
       },
@@ -64,7 +63,13 @@ class LoginView extends StackedView<LoginViewModel>  with $LoginView {
     );
   }
 
-  CherryToast showErrorToast() => CherryToast.error(title: Text(getValidationMessage("usernameInput")?? "Validation Error",textAlign: TextAlign.center,),width: double.maxFinite,);
+  CherryToast showErrorToast() => CherryToast.error(
+        title: Text(
+          getValidationMessage("usernameInput") ?? "Validation Error",
+          textAlign: TextAlign.center,
+        ),
+        width: double.maxFinite,
+      );
 
   @override
   void onViewModelReady(LoginViewModel viewModel) {
@@ -76,7 +81,6 @@ class LoginView extends StackedView<LoginViewModel>  with $LoginView {
     super.onDispose(viewModel);
     disposeForm();
   }
-
 
   @override
   LoginViewModel viewModelBuilder(

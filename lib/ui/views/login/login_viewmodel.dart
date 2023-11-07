@@ -6,7 +6,7 @@ import 'package:stacked_services/stacked_services.dart';
 import '../../../app/app.locator.dart';
 import 'login_view.form.dart';
 
-class LoginViewModel extends  FormViewModel {
+class LoginViewModel extends FormViewModel {
   final _navigationService = locator<NavigationService>();
   final _dialogService = locator<DialogService>();
 
@@ -23,9 +23,8 @@ class LoginViewModel extends  FormViewModel {
     if (_username != null && _username!.isNotEmpty) {
       //todo: username will send to service
       _navigationService.replaceWithHomeView();
-    }else{
+    } else {
       //todo: show error message
     }
   }
-
 }

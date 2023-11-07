@@ -8,6 +8,7 @@ import 'dart:ui' as _i5;
 
 import 'package:flutter/material.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
+import 'package:socket_chat/services/channel_service.dart' as _i7;
 import 'package:socket_chat/services/socket_service.dart' as _i6;
 import 'package:stacked_services/stacked_services.dart' as _i2;
 
@@ -657,3 +658,8 @@ class MockDialogService extends _i1.Mock implements _i2.DialogService {
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockSocketService extends _i1.Mock implements _i6.SocketService {}
+
+/// A class which mocks [ChannelService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockChannelService extends _i1.Mock implements _i7.ChannelService {}
