@@ -16,8 +16,8 @@ class HomeViewModel extends BaseViewModel {
 
   get channels => _channelService.channels;
 
-  void navigateToChat(Channel channel){
-     _navigationService.navigateToChatView(channel:channel);
+  void navigateToChat(Channel channel) {
+    _navigationService.navigateToChatView(channel: channel);
   }
 
   void showDialog() {
