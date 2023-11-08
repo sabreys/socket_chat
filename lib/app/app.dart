@@ -7,6 +7,9 @@ import 'package:stacked_services/stacked_services.dart';
 import 'package:socket_chat/services/socket_service.dart';
 import 'package:socket_chat/ui/views/login/login_view.dart';
 import 'package:socket_chat/services/channel_service.dart';
+import 'package:socket_chat/ui/views/chat/chat_view.dart';
+import 'package:socket_chat/services/cache_service.dart';
+import 'package:socket_chat/services/user_service.dart';
 // @stacked-import
 
 @StackedApp(
@@ -14,6 +17,7 @@ import 'package:socket_chat/services/channel_service.dart';
     MaterialRoute(page: HomeView),
     MaterialRoute(page: StartupView),
     MaterialRoute(page: LoginView),
+    MaterialRoute(page: ChatView),
 // @stacked-route
   ],
   dependencies: [
@@ -22,6 +26,8 @@ import 'package:socket_chat/services/channel_service.dart';
     LazySingleton(classType: NavigationService),
     LazySingleton(classType: SocketService),
     LazySingleton(classType: ChannelService),
+    LazySingleton(classType: CacheService),
+    LazySingleton(classType: UserService),
 // @stacked-service
   ],
   bottomsheets: [

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import 'package:socket_chat/ui/common/app_colors.dart';
 import 'package:socket_chat/ui/common/ui_helpers.dart';
 
 import '../../../models/Channel.dart';
@@ -38,7 +37,7 @@ class HomeView extends StackedView<HomeViewModel> {
                     buildChannels(viewModel),
                   ],
                 ),
-            /*    Row(
+                /*    Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     MaterialButton(
@@ -85,6 +84,7 @@ class HomeView extends StackedView<HomeViewModel> {
         itemBuilder: (context, index) {
           final Channel item = viewModel.channels[index];
           return ListTile(
+            onTap: () => viewModel.navigateToChat(item),
             title: Text(item.title!),
             subtitle: Text(item.description!),
             trailing: const Icon(Icons.arrow_forward_ios),

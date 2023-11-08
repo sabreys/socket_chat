@@ -8,9 +8,14 @@ import 'dart:ui' as _i5;
 
 import 'package:flutter/material.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:socket_chat/services/channel_service.dart' as _i7;
+import 'package:socket_chat/models/Channel.dart' as _i10;
+import 'package:socket_chat/models/ChatMessage.dart' as _i8;
+import 'package:socket_chat/services/cache_service.dart' as _i11;
+import 'package:socket_chat/services/channel_service.dart' as _i9;
 import 'package:socket_chat/services/socket_service.dart' as _i6;
+import 'package:socket_chat/services/user_service.dart' as _i12;
 import 'package:stacked_services/stacked_services.dart' as _i2;
+import 'package:web_socket_client/web_socket_client.dart' as _i7;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -657,9 +662,188 @@ class MockDialogService extends _i1.Mock implements _i2.DialogService {
 /// A class which mocks [SocketService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockSocketService extends _i1.Mock implements _i6.SocketService {}
+class MockSocketService extends _i1.Mock implements _i6.SocketService {
+  @override
+  set activeSocket(_i7.WebSocket? _activeSocket) => super.noSuchMethod(
+        Invocation.setter(
+          #activeSocket,
+          _activeSocket,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  set activeChannelId(String? _activeChannelId) => super.noSuchMethod(
+        Invocation.setter(
+          #activeChannelId,
+          _activeChannelId,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  List<_i8.ChatMessage> get messages => (super.noSuchMethod(
+        Invocation.getter(#messages),
+        returnValue: <_i8.ChatMessage>[],
+        returnValueForMissingStub: <_i8.ChatMessage>[],
+      ) as List<_i8.ChatMessage>);
+
+  @override
+  set messages(List<_i8.ChatMessage>? _messages) => super.noSuchMethod(
+        Invocation.setter(
+          #messages,
+          _messages,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  int get listenersCount => (super.noSuchMethod(
+        Invocation.getter(#listenersCount),
+        returnValue: 0,
+        returnValueForMissingStub: 0,
+      ) as int);
+
+  @override
+  dynamic connectSocket(String? channelId) => super.noSuchMethod(
+        Invocation.method(
+          #connectSocket,
+          [channelId],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  _i4.Future<void> loadCachedMessages(String? channelId) => (super.noSuchMethod(
+        Invocation.method(
+          #loadCachedMessages,
+          [channelId],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+
+  @override
+  void createConnection(String? channelId) => super.noSuchMethod(
+        Invocation.method(
+          #createConnection,
+          [channelId],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void listenSocket() => super.noSuchMethod(
+        Invocation.method(
+          #listenSocket,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  dynamic sendMessage(String? message) => super.noSuchMethod(
+        Invocation.method(
+          #sendMessage,
+          [message],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void listenToReactiveValues(List<dynamic>? reactiveValues) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #listenToReactiveValues,
+          [reactiveValues],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void addListener(void Function()? listener) => super.noSuchMethod(
+        Invocation.method(
+          #addListener,
+          [listener],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void removeListener(void Function()? listener) => super.noSuchMethod(
+        Invocation.method(
+          #removeListener,
+          [listener],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void notifyListeners() => super.noSuchMethod(
+        Invocation.method(
+          #notifyListeners,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
+}
 
 /// A class which mocks [ChannelService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockChannelService extends _i1.Mock implements _i7.ChannelService {}
+class MockChannelService extends _i1.Mock implements _i9.ChannelService {
+  @override
+  List<_i10.Channel> get channels => (super.noSuchMethod(
+        Invocation.getter(#channels),
+        returnValue: <_i10.Channel>[],
+        returnValueForMissingStub: <_i10.Channel>[],
+      ) as List<_i10.Channel>);
+
+  @override
+  set channels(List<_i10.Channel>? _channels) => super.noSuchMethod(
+        Invocation.setter(
+          #channels,
+          _channels,
+        ),
+        returnValueForMissingStub: null,
+      );
+}
+
+/// A class which mocks [CacheService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockCacheService extends _i1.Mock implements _i11.CacheService {
+  @override
+  _i4.Future<List<_i8.ChatMessage>> getMessages(String? channelId) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getMessages,
+          [channelId],
+        ),
+        returnValue:
+            _i4.Future<List<_i8.ChatMessage>>.value(<_i8.ChatMessage>[]),
+        returnValueForMissingStub:
+            _i4.Future<List<_i8.ChatMessage>>.value(<_i8.ChatMessage>[]),
+      ) as _i4.Future<List<_i8.ChatMessage>>);
+
+  @override
+  void saveMessages(
+    String? channelId,
+    List<_i8.ChatMessage>? messages,
+  ) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #saveMessages,
+          [
+            channelId,
+            messages,
+          ],
+        ),
+        returnValueForMissingStub: null,
+      );
+}
+
+/// A class which mocks [UserService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockUserService extends _i1.Mock implements _i12.UserService {}
