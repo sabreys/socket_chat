@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:socket_chat/app/app.router.dart';
+import 'package:socket_chat/services/user_service.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
@@ -8,7 +9,7 @@ import 'login_view.form.dart';
 
 class LoginViewModel extends FormViewModel {
   final _navigationService = locator<NavigationService>();
-  final _dialogService = locator<DialogService>();
+  final _userService = locator<UserService>();
 
   String? _username;
 
@@ -20,11 +21,7 @@ class LoginViewModel extends FormViewModel {
   }
 
   void login(BuildContext context) {
-    if (_username != null && _username!.isNotEmpty) {
-      //todo: username will send to service
+       _userService.username = _username;
       _navigationService.replaceWithHomeView();
-    } else {
-      //todo: show error message
-    }
   }
 }
