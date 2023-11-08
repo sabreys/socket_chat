@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import 'package:socket_chat/ui/common/app_colors.dart';
 import 'package:socket_chat/ui/common/ui_helpers.dart';
 
+import '../../../models/Channel.dart';
 import 'home_viewmodel.dart';
 
 class HomeView extends StackedView<HomeViewModel> {
@@ -21,7 +21,7 @@ class HomeView extends StackedView<HomeViewModel> {
           child: Center(
             child: Column(
               mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 verticalSpaceLarge,
                 Column(
@@ -34,10 +34,10 @@ class HomeView extends StackedView<HomeViewModel> {
                       ),
                     ),
                     verticalSpaceMedium,
-
+                    buildChannels(viewModel),
                   ],
                 ),
-                Row(
+                /*    Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     MaterialButton(
@@ -61,7 +61,7 @@ class HomeView extends StackedView<HomeViewModel> {
                       ),
                     ),
                   ],
-                )
+                )*/
               ],
             ),
           ),
@@ -75,4 +75,22 @@ class HomeView extends StackedView<HomeViewModel> {
     BuildContext context,
   ) =>
       HomeViewModel();
+
+  buildChannels(HomeViewModel viewModel) {
+    return Container(
+      height: 200,
+      child: ListView.builder(
+        itemCount: viewModel.channels.length,
+        itemBuilder: (context, index) {
+          final Channel item = viewModel.channels[index];
+          return ListTile(
+            onTap: () => viewModel.navigateToChat(item),
+            title: Text(item.title!),
+            subtitle: Text(item.description!),
+            trailing: const Icon(Icons.arrow_forward_ios),
+          );
+        },
+      ),
+    );
+  }
 }

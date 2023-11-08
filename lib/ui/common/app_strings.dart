@@ -1,3 +1,3 @@
-const String ksHomeBottomSheetTitle = 'Build Great Apps!';
+const String ksHomeBottomSheetTitle = 'Realtime Chat!';
 const String ksHomeBottomSheetDescription =
-    'Stacked is built to help you build better apps. Give us a chance and we\'ll prove it to you. Check out stacked.filledstacks.com to learn more';
+    'This is a simple example of a realtime chat using socket.io';
