@@ -11,6 +11,8 @@ Socket Chat is a real-time Flutter messaging app enabling users to communicate i
 
 ## Screens
 ![Screens](https://github.com/sabreys/socket_chat/blob/dev/docs/screen.gif)
+## Documentation
+[Documentation PDF](https://github.com/sabreys/socket_chat/blob/main/docs/document.pdf)
 ## Installation
 
 To clone this project into your local environment, follow these steps:
