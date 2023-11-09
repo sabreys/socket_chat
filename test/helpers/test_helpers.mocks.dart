@@ -10,6 +10,7 @@ import 'package:flutter/material.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:socket_chat/models/Channel.dart' as _i10;
 import 'package:socket_chat/models/ChatMessage.dart' as _i8;
+import 'package:socket_chat/models/ChatMessage.dart';
 import 'package:socket_chat/services/cache_service.dart' as _i11;
 import 'package:socket_chat/services/channel_service.dart' as _i9;
 import 'package:socket_chat/services/socket_service.dart' as _i6;
@@ -742,7 +743,9 @@ class MockSocketService extends _i1.Mock implements _i6.SocketService {
       );
 
   @override
-  dynamic sendMessage(String? message) => super.noSuchMethod(
+
+  dynamic sendMessage(ChatMessage? message) => super.noSuchMethod(
+
         Invocation.method(
           #sendMessage,
           [message],
@@ -827,7 +830,9 @@ class MockCacheService extends _i1.Mock implements _i11.CacheService {
       ) as _i4.Future<List<_i8.ChatMessage>>);
 
   @override
-  void saveMessages(
+
+  Future<void> saveMessages(
+
     String? channelId,
     List<_i8.ChatMessage>? messages,
   ) =>

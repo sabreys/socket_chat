@@ -53,6 +53,7 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
   Widget _buildLoginButton(BuildContext context, LoginViewModel viewModel) {
     return ElevatedButton(
       onPressed: () {
+
         if (validateFormFields(viewModel)) {
           viewModel.login(context);
         } else {
