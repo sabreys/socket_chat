@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+
 import 'package:mockito/mockito.dart';
 import 'package:socket_chat/models/ChatMessage.dart';
 import 'package:socket_chat/services/cache_service.dart';
@@ -36,5 +37,6 @@ void main() {
       expect((await cacheService.getMessages(testChannelId)).first.message,
           equals('Test Message'));
     });
+
   });
 }

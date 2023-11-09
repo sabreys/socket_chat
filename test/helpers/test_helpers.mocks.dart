@@ -743,7 +743,9 @@ class MockSocketService extends _i1.Mock implements _i6.SocketService {
       );
 
   @override
+
   dynamic sendMessage(ChatMessage? message) => super.noSuchMethod(
+
         Invocation.method(
           #sendMessage,
           [message],
@@ -828,7 +830,9 @@ class MockCacheService extends _i1.Mock implements _i11.CacheService {
       ) as _i4.Future<List<_i8.ChatMessage>>);
 
   @override
+
   Future<void> saveMessages(
+
     String? channelId,
     List<_i8.ChatMessage>? messages,
   ) =>

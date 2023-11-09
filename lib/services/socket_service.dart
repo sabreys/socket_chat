@@ -27,6 +27,7 @@ class SocketService with ListenableServiceMixin {
     listenSocket();
   }
 
+
   Future<void> loadCachedMessages(String channelId) async {
     messages = await _cacheService.getMessages(channelId);
     notifyListeners();
@@ -61,6 +62,7 @@ class SocketService with ListenableServiceMixin {
 
   emitMessage(ChatMessage message){
     activeSocket?.send(json.encode(message.toJson()));
+
   }
 
   closeSocket() {

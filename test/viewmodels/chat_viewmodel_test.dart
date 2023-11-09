@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+
 import 'package:mockito/mockito.dart';
 import 'package:socket_chat/app/app.locator.dart';
 import 'package:socket_chat/models/Channel.dart';
@@ -90,3 +91,4 @@ void main() {
 
   });
 }
+
