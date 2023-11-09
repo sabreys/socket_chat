@@ -36,5 +36,6 @@ void main() {
       expect((await cacheService.getMessages(testChannelId)).first.message,
           equals('Test Message'));
     });
+
   });
 }

@@ -7,6 +7,8 @@ import '../../../services/cache_service.dart';
 
 class StartupViewModel extends BaseViewModel {
   final _navigationService = locator<NavigationService>();
+
+
   Future runStartupLogic() async {
     _navigationService.replaceWithLoginView();
   }

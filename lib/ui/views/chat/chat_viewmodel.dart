@@ -26,7 +26,9 @@ class ChatViewModel extends ReactiveViewModel {
   List<ListenableServiceMixin> get listenableServices => [_socketService];
 
   void sendMessage() {
+
     locator<SocketService>().createMessage(inputController.text);
+
     inputController.text = "";
   }
 
