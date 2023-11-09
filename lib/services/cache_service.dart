@@ -12,7 +12,7 @@ class CacheService {
         jsonMap.map((model) => ChatMessage.fromJson(model)));
   }
 
-  void saveMessages(String channelId, List<ChatMessage> messages) async {
+  Future<void> saveMessages(String channelId, List<ChatMessage> messages) async {
     final prefs = await SharedPreferences.getInstance();
     final jsonString =
         json.encode(messages.map((message) => message.toJson()).toList());

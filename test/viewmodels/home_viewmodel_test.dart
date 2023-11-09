@@ -1,40 +1,36 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:socket_chat/app/app.bottomsheets.dart';
 import 'package:socket_chat/app/app.locator.dart';
-import 'package:socket_chat/ui/common/app_strings.dart';
+import 'package:socket_chat/app/app.router.dart';
+import 'package:socket_chat/models/Channel.dart';
 import 'package:socket_chat/ui/views/home/home_viewmodel.dart';
 
 import '../helpers/test_helpers.dart';
 
+
+
 void main() {
-  HomeViewModel getModel() => HomeViewModel();
+  setUp(  registerServices);
+  tearDown(() => locator.reset());
 
-  group('HomeViewmodelTest -', () {
-    setUp(() => registerServices());
-    tearDown(() => locator.reset());
 
-    group('incrementCounter -', () {
-      test('When called once should return  Counter is: 1', () {
-        final model = getModel();
-        model.incrementCounter();
-        expect(model.counterLabel, 'Counter is: 1');
-      });
+  group('HomeViewModel Test -', () {
+    test('When navigateToChat is called, it should navigate to ChatView using NavigationService', () async {
+      // Arrange
+      final mockNavigationService = getAndRegisterNavigationService();
+      final homeViewModel = HomeViewModel();
+      final testChannel = Channel(title: 'Testing', description: 'Testing channel', path: 'test-path');
+
+      // Act
+      homeViewModel.navigateToChat(testChannel);
+
+      // Assert
+      verify(mockNavigationService.navigateToChatView(
+        channel: testChannel,
+      )).called(1);
     });
 
-    group('showBottomSheet -', () {
-      test('When called, should show custom bottom sheet using notice variant',
-          () {
-        final bottomSheetService = getAndRegisterBottomSheetService();
-
-        final model = getModel();
-        model.showBottomSheet();
-        verify(bottomSheetService.showCustomSheet(
-          variant: BottomSheetType.notice,
-          title: ksHomeBottomSheetTitle,
-          description: ksHomeBottomSheetDescription,
-        ));
-      });
-    });
   });
 }
+
+

@@ -44,15 +44,23 @@ class SocketService with ListenableServiceMixin {
     });
   }
 
-  sendMessage(String message) {
+  createMessage(String message) {
     ChatMessage chatMessage = ChatMessage(
         message: message,
         sender: _userService.username,
         timestamp: DateTime.now().millisecondsSinceEpoch);
-    activeSocket?.send(json.encode(chatMessage.toJson()));
+     sendMessage(chatMessage);
+  }
+
+  sendMessage( ChatMessage message) {
+     emitMessage(message);
     _cacheService.saveMessages(activeChannelId!, messages);
-    messages.add(chatMessage);
+    messages.add(message);
     notifyListeners();
+  }
+
+  emitMessage(ChatMessage message){
+    activeSocket?.send(json.encode(message.toJson()));
   }
 
   closeSocket() {
