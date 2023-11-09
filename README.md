@@ -22,7 +22,12 @@ git clone https://github.com/<your_username>/socket-chat.git
 cd socket-chat
 flutter pub get
 ```
-
+## API Keys 
+Service keys must be in `constants/keys.env.dart` file.
+```sh
+const apiKey = "Your key";
+const baseUrl = "wss://socketsbay.com/wss/v2";
+```
 ## Usage
 To run the app, execute the following command in your terminal:
 ```sh
